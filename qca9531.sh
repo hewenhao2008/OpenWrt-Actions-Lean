@@ -8,7 +8,7 @@
 #=================================================
 
 # 定制默认IP
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.67.1/g' package/base-files/files/bin/config_generate
 
 # 替换默认Argon主题
 rm -rf package/lean/luci-theme-argon
@@ -24,8 +24,8 @@ git clone https://github.com/kang-mk/luci-app-smartinfo package/luci-app-smartin
 
 #创建自定义配置文件 - OpenWrt-x86-64
 
-rm -f ./.config*
-touch ./.config
+#rm -f ./.config*
+#touch ./.config
 
 #
 # ========================固件定制部分========================
@@ -61,33 +61,33 @@ touch ./.config
 # 
 
 # 编译x64固件:
-cat >> .config <<EOF
-CONFIG_TARGET_x86=y
-CONFIG_TARGET_x86_64=y
-CONFIG_TARGET_x86_64_Generic=y
-EOF
+#cat >> .config <<EOF
+#CONFIG_TARGET_x86=y
+#CONFIG_TARGET_x86_64=y
+#CONFIG_TARGET_x86_64_Generic=y
+#EOF
 
 # 设置固件大小:
-cat >> .config <<EOF
-CONFIG_TARGET_KERNEL_PARTSIZE=30
-CONFIG_TARGET_ROOTFS_PARTSIZE=200
-EOF
+#cat >> .config <<EOF
+$CONFIG_TARGET_KERNEL_PARTSIZE=30
+#CONFIG_TARGET_ROOTFS_PARTSIZE=200
+#EOF
 
 # 固件压缩:
-cat >> .config <<EOF
-CONFIG_TARGET_IMAGES_GZIP=y
-EOF
+#cat >> .config <<EOF
+#CONFIG_TARGET_IMAGES_GZIP=y
+#EOF
 
 # 编译UEFI固件:
-cat >> .config <<EOF
-CONFIG_EFI_IMAGES=y
-EOF
+#cat >> .config <<EOF
+#CONFIG_EFI_IMAGES=y
+#EOF
 
 # IPv6支持:
-cat >> .config <<EOF
-CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-CONFIG_PACKAGE_ipv6helper=y
-EOF
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+#CONFIG_PACKAGE_ipv6helper=y
+#EOF
 
 # 多文件系统支持:
 # cat >> .config <<EOF
@@ -109,11 +109,11 @@ EOF
 # EOF
 
 # 第三方插件选择:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-serverchan=y
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_luci-app-serverchan=y
 # CONFIG_PACKAGE_luci-app-adguardhome=y
 # CONFIG_PACKAGE_luci-app-smartinfo=y
-EOF
+#EOF
 
 # ShadowsocksR插件:
 # cat >> .config <<EOF
@@ -133,37 +133,37 @@ cat >> .config <<EOF
 # CONFIG_PACKAGE_luci-app-v2ray-server is not set
 # CONFIG_PACKAGE_luci-app-pptp-server is not set
 # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
-CONFIG_PACKAGE_luci-app-adbyby-plus=y
-CONFIG_PACKAGE_luci-app-softethervpn=y
-CONFIG_PACKAGE_luci-app-haproxy-tcp=y
-CONFIG_PACKAGE_luci-app-webadmin=y
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-wrtbwmon=y
+#CONFIG_PACKAGE_luci-app-adbyby-plus=y
+#CONFIG_PACKAGE_luci-app-softethervpn=y
+#CONFIG_PACKAGE_luci-app-haproxy-tcp=y
+#CONFIG_PACKAGE_luci-app-webadmin=y
+#CONFIG_PACKAGE_luci-app-frpc=y
+#CONFIG_PACKAGE_luci-app-wrtbwmon=y
 # CONFIG_PACKAGE_luci-app-hd-idle=y
-EOF
+#EOF
 
 # LuCI主题:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-theme-netgear=y
-EOF
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_luci-theme-argon=y
+#CONFIG_PACKAGE_luci-theme-netgear=y
+#EOF
 
 # 常用软件包:
-cat >> .config <<EOF
-CONFIG_PACKAGE_curl=y
-CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_nano=y
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_curl=y
+#CONFIG_PACKAGE_htop=y
+#CONFIG_PACKAGE_nano=y
 # CONFIG_PACKAGE_screen=y
 # CONFIG_PACKAGE_tree=y
 # CONFIG_PACKAGE_vim-fuller=y
-CONFIG_PACKAGE_wget=y
-EOF
+#CONFIG_PACKAGE_wget=y
+#EOF
 
 # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
-cat >> .config <<EOF
+#cat >> .config <<EOF
 # CONFIG_TARGET_IMAGES_PAD is not set
 # CONFIG_VMDK_IMAGES is not set
-EOF
+#EOF
 
 # 
 # ========================固件定制部分结束========================
