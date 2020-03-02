@@ -10,8 +10,8 @@ name: qca9531-Actions
 
 on:
 # 定时触发
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
 
 # release触发
   release:
