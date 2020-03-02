@@ -116,8 +116,8 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: files_config
-        path: openwrt/files openwrt/.config
+        name: openwrt_files
+        path: openwrt/files 
 
     - name: 整理文件
       id: organize
